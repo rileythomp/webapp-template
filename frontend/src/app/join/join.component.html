@@ -1,0 +1,9 @@
+<div class='join-container flex-column'>
+    <div class='flex-column gap15'>
+        <input *ngIf="!user.authenticated" type="text" [(ngModel)]="user.name" placeholder="Enter your name">
+        <p style='margin: 0;' *ngIf="user.authenticated">Welcome, {{user.name}}</p>
+    </div>
+    <div>
+        <pre style="white-space: pre-wrap;"><code>{{ user | json }}</code></pre>
+    </div>
+</div>

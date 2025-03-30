@@ -1,0 +1,42 @@
+<div class='toolbar debug-border border-red flex-row' role="banner">
+    <div class="debug-border border-green">
+        <h2>Web App Template!</h2>
+    </div>
+    <div id='header-icons' class='flex-row debug-border border-green'>
+        <div>
+            <a href="/">
+                <ion-icon name="home-outline"></ion-icon>
+            </a>
+        </div>
+        <div>
+            <ion-icon (click)="router.navigate(['/instructions'])" name="information-circle-outline"></ion-icon>
+        </div>
+        <div style='position: relative;'>
+            <div (click)="showAuthOptions = !showAuthOptions">
+                <ion-icon *ngIf="!user.authenticated" name="log-in-outline"></ion-icon>
+                <img *ngIf="user.authenticated" [src]="user.imgUrl" alt="">
+            </div>
+            <div *ngIf="showAuthOptions" id="auth-options" [@slideDownUp]>
+                <div *ngIf="!user.authenticated" class='flex-column'>
+                    <app-auth-button (click)="signIn('google')" [buttonText]="'Sign in with Google'"
+                        [imgUrl]="'../../../assets/google.png'"></app-auth-button>
+                    <app-auth-button (click)="signIn('github')" [buttonText]="'Sign in with GitHub'"
+                        [imgUrl]="'../../../assets/github.png'"></app-auth-button>
+                    <app-auth-button (click)="startLogin()" [buttonText]="'Sign in with email'" [imgUrl]="''"
+                        [iconName]="'email'"></app-auth-button>
+                    <app-auth-button (click)="startRegistration()" [buttonText]="'Create an account'" [imgUrl]="''"
+                        [iconName]="'sign-up'"></app-auth-button>
+                </div>
+                <div *ngIf="user.authenticated" class='flex-column'>
+                    <app-auth-button (click)="goToProfile()" [buttonText]="'Profile'" [imgUrl]="''"
+                        [iconName]="'profile'"></app-auth-button>
+                    <app-auth-button (click)="signOut()" [buttonText]="'Sign out'" [imgUrl]="''"
+                        [iconName]="'sign-out'"></app-auth-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-register *ngIf="modal.showRegister()"></app-register>
+<app-login *ngIf="modal.showLogin()"></app-login>

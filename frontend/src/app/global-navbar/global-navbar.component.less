@@ -1,0 +1,56 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    align-items: center;
+
+    h2 {
+        margin: 0;
+    }
+
+    #header-icons {
+        gap: 2em;
+        padding-right: 2em;
+        justify-content: flex-end;
+
+        div {
+            flex-grow: 0;
+        }
+
+        ion-icon {
+            font-size: 2em;
+        }
+
+        ion-icon:hover,
+        img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid black;
+        }
+    }
+
+    #auth-options {
+        position: absolute;
+        top: calc(100% + 0.5em + 4px);
+        right: 0;
+        padding: 1em;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 0.5em;
+        z-index: 1;
+        transform-origin: top;
+
+        .flex-column {
+            gap: 1em;
+        }
+    }
+}

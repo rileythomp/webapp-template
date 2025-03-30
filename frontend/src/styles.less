@@ -1,0 +1,118 @@
+:root {
+    --header-height: 50px;
+}
+
+.debug-border-on {
+    border: 1px dashed;
+    box-sizing: border-box;
+}
+
+.border-red {
+    border-color: red;
+}
+
+.border-blue {
+    border-color: blue;
+}
+
+.border-green {
+    border-color: green;
+}
+
+.border-black {
+    border-color: black;
+}
+
+input,
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+input:focus {
+    outline: 1px solid grey;
+}
+
+button {
+    background-color: #f0f0f0;
+}
+
+button:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.flex-row {
+    display: flex;
+
+    * {
+        flex: 1;
+    }
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+
+    * {
+        flex: 1;
+    }
+}
+
+@keyframes fadeInMoveUp {
+    from {
+        transform: translate(-50%, calc(-1*var(--header-height)))
+    }
+
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+.modal-container {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(600px - 4em);
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    animation: fadeInMoveUp 2s ease-out;
+    padding: 2em;
+
+    .modal-message {
+
+        h3,
+        p {
+            margin: 0;
+            margin-bottom: 1em;
+        }
+    }
+}
+
+.link {
+    color: blue;
+    user-select: none;
+}
+
+.link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.icon-text {
+    display: flex;
+    gap: 0.25em;
+
+    p {
+        flex-grow: 1
+    }
+
+    div {
+        flex-grow: 0;
+    }
+}
