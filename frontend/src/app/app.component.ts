@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { StarbattleService } from './services/starbattle.service';
 
 @Component({
 	selector: 'app-root',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./app.component.less'],
 })
 export class AppComponent implements OnInit {
+	constructor(private starbattle: StarbattleService) { }
+
 	ngOnInit() {
 		let starbattle =
 			`  _________ __                 __________         __    __  .__
@@ -16,5 +19,10 @@ export class AppComponent implements OnInit {
         \\/           \\/                \\/      \\/                     \\/
 Please report any issues to https://github.com/rileythomp/starbattle/issues`;
 		console.log(starbattle)
+	}
+
+	@HostListener('window:mouseup', ['$event'])
+	handleMouseUp(_: MouseEvent) {
+		this.starbattle.setMarkingEmpty(false);
 	}
 }

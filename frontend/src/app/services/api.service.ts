@@ -45,14 +45,15 @@ export class ApiService {
         return { user: user, err: null }
     }
 
-    async GetDailyGame(): Promise<{ dailyGame: any, error: Error | null }> {
+    async GetDailyGame(): Promise<{ game: any, error: Error | null }> {
         let resp;
         try {
             resp = await firstValueFrom(this.get('daily-game'))
         } catch (error) {
-            return { dailyGame: null, error: Error('Error getting daily game') }
+            console.error('Error getting daily game:', error);
+            return { game: null, error: Error('Error getting daily game') }
         }
-        return { dailyGame: resp, error: null }
+        return { game: resp, error: null }
     }
 
     private post(path: string, req: any): Observable<any> {

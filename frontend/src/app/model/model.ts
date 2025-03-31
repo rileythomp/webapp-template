@@ -9,12 +9,14 @@ export type User = {
 
 export type Cell = {
     row: number;
-    col: number;
+    column: number;
     color: string;
+    state: 'empty' | 'marked' | 'star';
 }
 
 export type Game = {
     board: Cell[][];
+    isMarkingEmpty: boolean;
 }
 
 

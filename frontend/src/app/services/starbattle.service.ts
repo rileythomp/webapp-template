@@ -12,18 +12,28 @@ export class StarbattleService {
 
 	constructor(private api: ApiService) {
 		this.gameSubject = new BehaviorSubject<Game>({
-			board: []
+			board: [],
+			isMarkingEmpty: false,
 		});
 		this.game = this.gameSubject.asObservable();
 	}
 
 	public async GetDailyGame(): Promise<Error | null> {
-		let { dailyGame, error } = await this.api.GetDailyGame();
+		let { game, error } = await this.api.GetDailyGame();
 		if (error) {
-			console.error(error);
 			return error;
 		}
-		this.gameSubject.next(dailyGame);
+		this.gameSubject.next(game);
 		return null;
+	}
+
+	public setMarkingEmpty(isMarkingEmpty: boolean) {
+		let game = this.gameSubject.getValue();
+		game.isMarkingEmpty = isMarkingEmpty;
+		this.gameSubject.next(game);
+	}
+
+	public IsMarkingEmpty(): boolean {
+		return this.gameSubject.getValue().isMarkingEmpty;
 	}
 }
