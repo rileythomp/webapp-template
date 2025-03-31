@@ -113,9 +113,11 @@ func GetUserByName(c *gin.Context) {
 }
 
 type Cell struct {
-	Row    int    `json:"row"`
-	Column int    `json:"column"`
-	Color  string `json:"color"`
+	Row          int    `json:"row"`
+	Column       int    `json:"column"`
+	Color        string `json:"color"`
+	BorderRight  bool   `json:"borderRight"`
+	BorderBottom bool   `json:"borderBottom"`
 }
 
 func getCellColor(cell int) string {
@@ -149,9 +151,11 @@ func getBoard(boardStr string) [][]Cell {
 		row := []Cell{}
 		for j := 0; j < length; j++ {
 			row = append(row, Cell{
-				Row:    i,
-				Column: j,
-				Color:  getCellColor(int(boardStr[i*length+j] - 'A')),
+				Row:          i,
+				Column:       j,
+				Color:        getCellColor(int(boardStr[i*length+j] - 'A')),
+				BorderRight:  j < length-1 && boardStr[i*length+j] != boardStr[i*length+j+1],
+				BorderBottom: i < length-1 && boardStr[i*length+j] != boardStr[(i+1)*length+j],
 			})
 		}
 		board = append(board, row)
@@ -162,7 +166,7 @@ func getBoard(boardStr string) [][]Cell {
 func GetDailyGame(c *gin.Context) {
 	log.Infof("Received request to get daily game")
 
-	boardStr := "DDDDDDDDDDDBDDDDBBBBFFFFBBBFFFHHBGEEEEEHBGEGCCEHBGGGGCAHCCCCCCCC"
+	boardStr := "CCGGGGGGCCBBBGDGCFBDDDDGCFBDHHDGAABAAEDGAAAAEEGGAEEEEEGGEEEEEEEE"
 
 	board := getBoard(boardStr)
 

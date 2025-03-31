@@ -12,6 +12,8 @@ export type Cell = {
     column: number;
     color: string;
     state: 'empty' | 'marked' | 'star';
+    borderRight: boolean;
+    borderBottom: boolean;
 }
 
 export type Game = {

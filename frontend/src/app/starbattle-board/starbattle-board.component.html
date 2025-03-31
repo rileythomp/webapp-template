@@ -3,9 +3,9 @@
         <td *ngFor="let cell of row" [ngStyle]="{
                 'background-color': cell.color,
                 'border-top': cell.row === 0 ? '5px solid black' : '2px solid black',
-                'border-bottom': cell.row === 7 ? '5px solid black' : '2px solid black',
+                'border-bottom': cell.row === 7 || cell.borderBottom ? '5px solid black' : '2px solid black',
                 'border-left': cell.column === 0 ? '5px solid black' : '2px solid black',
-                'border-right': cell.column === 7 ? '5px solid black' : '2px solid black',
+                'border-right': cell.column === 7 || cell.borderRight ? '5px solid black' : '2px solid black',
             }" (mousedown)='handleCellMouseDown(cell)' (mouseover)='handleCellMouseOver(cell)'>
             <span class="dot" *ngIf="cell.state === 'marked'">●</span>
             <span class="star" *ngIf="cell.state === 'star'">
