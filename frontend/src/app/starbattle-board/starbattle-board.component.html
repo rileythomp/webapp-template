@@ -1,5 +1,7 @@
 <table>
     <tr *ngFor="let row of board">
-        <td *ngFor="let col of row"></td>
+        <td *ngFor="let cell of row" [ngStyle]="{
+                'background-color': cell.color,
+            }"></td>
     </tr>
 </table>

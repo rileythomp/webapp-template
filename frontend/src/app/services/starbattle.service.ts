@@ -12,16 +12,7 @@ export class StarbattleService {
 
 	constructor(private api: ApiService) {
 		this.gameSubject = new BehaviorSubject<Game>({
-			board: [
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-				[1, 2, 3, 4, 5, 6, 7, 8],
-			]
+			board: []
 		});
 		this.game = this.gameSubject.asObservable();
 	}

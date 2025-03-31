@@ -7,6 +7,14 @@ export type User = {
     public: boolean;
 }
 
-export type Game = {
-    board: number[][];
+export type Cell = {
+    row: number;
+    col: number;
+    color: string;
 }
+
+export type Game = {
+    board: Cell[][];
+}
+
+

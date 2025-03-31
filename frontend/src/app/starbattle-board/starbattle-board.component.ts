@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StarbattleService } from '../services/starbattle.service';
+import { Cell } from '../model/model';
 
 @Component({
 	selector: 'app-starbattle-board',
@@ -7,7 +8,7 @@ import { StarbattleService } from '../services/starbattle.service';
 	styleUrl: './starbattle-board.component.less'
 })
 export class StarbattleBoardComponent {
-	protected board: number[][] = [[1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3, 4, 5, 6, 7, 8]];
+	protected board: Cell[][] = [];
 
 	constructor(
 		private starbattle: StarbattleService,
