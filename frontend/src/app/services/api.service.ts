@@ -47,7 +47,7 @@ export class ApiService {
 
     private post(path: string, req: any): Observable<any> {
         return this.http.post<any>(
-            `${httpProtocol}://${apiAddr}/webapp_template/${path}`,
+            `${httpProtocol}://${apiAddr}/starbattle/${path}`,
             req,
             this.headers()
         )
@@ -55,7 +55,7 @@ export class ApiService {
 
     private put(path: string, req: any): Observable<any> {
         return this.http.put<any>(
-            `${httpProtocol}://${apiAddr}/webapp_template/${path}`,
+            `${httpProtocol}://${apiAddr}/starbattle/${path}`,
             req,
             this.headers()
         )
@@ -63,7 +63,7 @@ export class ApiService {
 
     private get(path: string): Observable<any> {
         return this.http.get<any>(
-            `${httpProtocol}://${apiAddr}/webapp_template/${path}`,
+            `${httpProtocol}://${apiAddr}/starbattle/${path}`,
             this.headers(),
         )
     }

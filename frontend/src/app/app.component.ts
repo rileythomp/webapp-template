@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 	ngOnInit() {
-		let webAppTemplate =
-			`Web App Template
-
-Please report any issues to https://docs.google.com/forms/d/e/1FAIpQLSdzHFumIhdsgNksr8lDUO3hHhVwaIqeO9asIhBWsroNfYZW4Q/viewform`;
-		console.log(webAppTemplate)
+		let starbattle =
+			`  _________ __                 __________         __    __  .__
+ /   _____//  |______ _______  \\______   \\_____ _/  |__/  |_|  |   ____
+ \\_____  \\\\   __\\__  \\\\_  __ \\  |    |  _/\\__  \\\\   __\\   __\\  | _/ __ \\
+ /        \\|  |  / __ \\|  | \\/  |    |   \\ / __ \\|  |  |  | |  |_\\  ___/
+/_______  /|__| (____  /__|     |______  /(____  /__|  |__| |____/\\___ \\
+        \\/           \\/                \\/      \\/                     \\/
+Please report any issues to https://github.com/rileythomp/starbattle/issues`;
+		console.log(starbattle)
 	}
 }

@@ -1,29 +1,21 @@
-# Web App Template
-
-Template for a simple web app built with Angular, Go, and Supabase.
+# Starbattle
 
 ### Features
 
-- Sign in with Google and GitHub accounts or email
-
-- User accounts with privacy controls
-
-### Development
-
-Server
-
-```
-$ cd backend
-$ go mod tidy
-$ docker compose up -d postgres
-$ source .env
-$ make run
-```
-
-Client
-
-```
-$ cd frontend
-$ npm install
-$ ng serve
-```
+- Daily games
+- Free play boards
+    - Records per board
+    - Percent you beat
+    - 8x8 1, 10x10 1, 10x10 2, 12x12 2, 14x14 3
+- 1v1
+    - ELO rating system
+    - Paired with person online closet to your rating
+    - Can challenge someone to a game at a specific time
+- Leaderboards
+    - By rating
+    - By fastest times
+- Light and dark modes
+- User accounts
+    - Profile pictures, bio
+    - All time stats
+- Game replays

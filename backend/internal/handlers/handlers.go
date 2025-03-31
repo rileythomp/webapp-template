@@ -9,8 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	"github.com/rileythomp/webapp_template/backend/internal/log"
-	"github.com/rileythomp/webapp_template/backend/internal/logic"
+	"github.com/rileythomp/starbattle/backend/internal/log"
+	"github.com/rileythomp/starbattle/backend/internal/logic"
 )
 
 type (
@@ -35,17 +35,17 @@ var (
 	Routes = []Route{
 		{
 			Method:  http.MethodGet,
-			Path:    "/webapp_template/health",
+			Path:    "/starbattle/health",
 			Handler: CheckHealth,
 		},
 		{
 			Method:  http.MethodGet,
-			Path:    "/webapp_template/version",
+			Path:    "/starbattle/version",
 			Handler: GetVersion,
 		},
 		{
 			Method:  http.MethodGet,
-			Path:    "/webapp_template/users/:name",
+			Path:    "/starbattle/users/:name",
 			Handler: GetUserByName,
 		},
 	}

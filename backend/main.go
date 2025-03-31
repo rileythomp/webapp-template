@@ -7,8 +7,8 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/rileythomp/webapp_template/backend/internal/auth"
-	"github.com/rileythomp/webapp_template/backend/internal/handlers"
+	"github.com/rileythomp/starbattle/backend/internal/auth"
+	"github.com/rileythomp/starbattle/backend/internal/handlers"
 )
 
 func main() {

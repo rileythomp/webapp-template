@@ -7,7 +7,7 @@ import { SupabaseService } from './supabase.service';
 	providedIn: 'root'
 })
 export class StorageService {
-	readonly UserImgs: string = 'webapp_template_user_imgs'
+	readonly UserImgs: string = 'starbattle_user_imgs'
 
 	constructor(private supabase: SupabaseService) { }
 

@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"github.com/rileythomp/webapp_template/backend/internal/db"
-	"github.com/rileythomp/webapp_template/backend/internal/log"
+	"github.com/rileythomp/starbattle/backend/internal/db"
+	"github.com/rileythomp/starbattle/backend/internal/log"
 )
 
 var supabase *db.SupabaseDB

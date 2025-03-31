@@ -1,4 +1,4 @@
-BINARY_NAME=bin/webapp_template
+BINARY_NAME=bin/starbattle
 
 build:
 	go build -o $(BINARY_NAME) -v

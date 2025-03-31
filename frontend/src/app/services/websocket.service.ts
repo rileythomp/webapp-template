@@ -10,7 +10,7 @@ export class WebsocketService {
 	constructor() { }
 
 	Connect(path: string): void {
-		this.ws = new WebSocket(`${environment.websocketProtocol}://${environment.apiServerUrl}/webapp_template/${path}`);
+		this.ws = new WebSocket(`${environment.websocketProtocol}://${environment.apiServerUrl}/starbattle/${path}`);
 	}
 
 	OnOpen(callback: () => void): void {

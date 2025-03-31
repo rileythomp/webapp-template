@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	issuer string = "rileythomp/webapp_template"
+	issuer string = "rileythomp/starbattle"
 
 	privateKey *rsa.PrivateKey
 	publicKey  *rsa.PublicKey

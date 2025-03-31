@@ -1,4 +1,4 @@
-# Web App Template  Server
+# Star Battle  Server
 
 ```
 $ go mod tidy

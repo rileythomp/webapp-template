@@ -9,23 +9,23 @@ import (
 )
 
 type (
-	WebAppTemplateDB struct {
+	StarBattle struct {
 		pool *pgxpool.Pool
 	}
 )
 
-func NewWebAppTemplateDB(ctx context.Context) (*WebAppTemplateDB, error) {
+func NewStarBattleDB(ctx context.Context) (*StarBattle, error) {
 	poolConfig, err := pgxpool.ParseConfig(os.Getenv("DATABASE_URL"))
 	if err != nil {
-		return &WebAppTemplateDB{}, err
+		return &StarBattle{}, err
 	}
 	pool, err := pgxpool.NewWithConfig(ctx, poolConfig)
 	if err != nil {
-		return &WebAppTemplateDB{}, err
+		return &StarBattle{}, err
 	}
-	return &WebAppTemplateDB{pool: pool}, nil
+	return &StarBattle{pool: pool}, nil
 }
 
-func (db *WebAppTemplateDB) Close() {
+func (db *StarBattle) Close() {
 	db.pool.Close()
 }

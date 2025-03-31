@@ -1,4 +1,4 @@
-# Web App Template  Client
+# Star Battle Client
 
 Run locally:
 ```

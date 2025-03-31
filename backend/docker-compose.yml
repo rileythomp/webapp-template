@@ -5,7 +5,7 @@ services:
   postgres:
     image: postgres:buster
     hostname: postgres
-    container_name: webapp_template_postgres
+    container_name: starbattle_postgres
     restart: always
     ports:
       - "5435:5432"

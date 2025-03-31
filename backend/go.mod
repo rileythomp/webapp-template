@@ -1,4 +1,4 @@
-module github.com/rileythomp/webapp_template/backend
+module github.com/rileythomp/starbattle/backend
 
 go 1.22.4
 
