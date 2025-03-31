@@ -6,3 +6,7 @@ export type User = {
     dateJoined: string;
     public: boolean;
 }
+
+export type Game = {
+    board: number[][];
+}

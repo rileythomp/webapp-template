@@ -17,6 +17,8 @@ import { JoinComponent } from './join/join.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GlobalNavbarComponent } from './global-navbar/global-navbar.component';
 import { DebugBordersComponent } from './debug-borders/debug-borders.component';
+import { StarbattleBoardComponent } from './starbattle-board/starbattle-board.component';
+import { StartPageComponent } from './start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { DebugBordersComponent } from './debug-borders/debug-borders.component';
     ProfileComponent,
     PasswordResetComponent,
     NewPasswordComponent,
+    StarbattleBoardComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,

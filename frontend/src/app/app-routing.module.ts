@@ -4,9 +4,10 @@ import { PasswordResetComponent } from './auth/password-reset/password-reset.com
 import { JoinComponent } from './join/join.component';
 import { ProfileComponent } from './profile/profile.component';
 import { InstructionsComponent } from './instructions/instructions.component';
+import { StartPageComponent } from './start-page/start-page.component';
 
 const routes: Routes = [
-	{ path: '', component: JoinComponent },
+	{ path: '', component: StartPageComponent },
 	{ path: 'join', component: JoinComponent },
 	{ path: 'profile', component: ProfileComponent },
 	{ path: 'profile/:name', component: ProfileComponent },

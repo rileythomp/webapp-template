@@ -48,6 +48,11 @@ var (
 			Path:    "/starbattle/users/:name",
 			Handler: GetUserByName,
 		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/starbattle/daily-game",
+			Handler: GetDailyGame,
+		},
 	}
 
 	upgrader = websocket.Upgrader{
@@ -104,4 +109,25 @@ func GetUserByName(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, user)
+}
+
+func GetDailyGame(c *gin.Context) {
+	log.Infof("Received request to get daily game")
+
+	game := struct {
+		Board [][]int `json:"board"`
+	}{
+		Board: [][]int{
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+			{1, 2, 3, 4, 5, 6, 7, 8},
+		},
+	}
+
+	c.JSON(http.StatusOK, game)
 }

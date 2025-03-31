@@ -45,6 +45,16 @@ export class ApiService {
         return { user: user, err: null }
     }
 
+    async GetDailyGame(): Promise<{ dailyGame: any, error: Error | null }> {
+        let resp;
+        try {
+            resp = await firstValueFrom(this.get('daily-game'))
+        } catch (error) {
+            return { dailyGame: null, error: Error('Error getting daily game') }
+        }
+        return { dailyGame: resp, error: null }
+    }
+
     private post(path: string, req: any): Observable<any> {
         return this.http.post<any>(
             `${httpProtocol}://${apiAddr}/starbattle/${path}`,
