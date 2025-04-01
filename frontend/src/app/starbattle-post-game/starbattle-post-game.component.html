@@ -1,0 +1,41 @@
+<div>
+    <p>Congratulations! You completed the board in <b>{{ formatTime(stats.duration) }}</b>.</p>
+    <p>That time is better than <b>{{ stats.percentile }}%</b> of other players on this board.</p>
+    <p *ngIf="stats.top10 && stats.top10 > 0">This is the <b>{{ formatTop10(stats.top10) }}</b> fastest time ever on
+        this
+        board!</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Median Time</th>
+                <th>Attempts</th>
+                <th>Success Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ formatTime(stats.medianTime) }}</td>
+                <td>{{ stats.attempts }}</td>
+                <td>{{ stats.successRate }}%</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Leaderboard</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entry of stats.leaderboard; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ entry.name }}</td>
+                <td>{{ formatTime(entry.time) }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="playAgain()">Play again</button>
+</div>

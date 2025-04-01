@@ -12,6 +12,6 @@ clean:
 
 run-heroku:
 	go install -v ./...
-	heroku local web --port 8080
+	heroku local web --port 8000
 
 .PHONY: build run clean run-heroku

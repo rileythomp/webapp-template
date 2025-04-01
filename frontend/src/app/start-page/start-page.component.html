@@ -1,5 +1,10 @@
 <div id="start-page" class='flex-column'>
     <div class="debug-border border-red">
-        <app-starbattle-board> </app-starbattle-board>
+        <div *ngIf="showBoard">
+            <app-starbattle-board> </app-starbattle-board>
+        </div>
+        <div *ngIf="showPostGame">
+            <app-starbattle-post-game [stats]="stats"> </app-starbattle-post-game>
+        </div>
     </div>
 </div>

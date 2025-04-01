@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StarbattleService } from '../services/starbattle.service';
-import { Cell } from '../model/model';
+import { Game, Cell } from '../model/model';
 
 @Component({
 	selector: 'app-starbattle-board',
@@ -8,9 +8,10 @@ import { Cell } from '../model/model';
 	styleUrl: './starbattle-board.component.less'
 })
 export class StarbattleBoardComponent {
-	protected board: Cell[][] = [];
+	protected game: Game = <Game>{};
 	protected seconds: number = 0;
 	private timerStarted: boolean = false;
+	private timerInterval: any;
 
 	constructor(
 		private starbattle: StarbattleService,
@@ -18,8 +19,16 @@ export class StarbattleBoardComponent {
 
 	ngOnInit() {
 		this.starbattle.game.subscribe(game => {
-			this.board = game.board;
-		})
+			this.game = game;
+			if (!this.timerStarted) {
+				this.startTimer();
+				this.timerStarted = true;
+			}
+			if (game.isFinished && this.timerInterval) {
+				clearInterval(this.timerInterval);
+				this.timerStarted = false;
+			}
+		});
 	}
 
 	formatTime(seconds: number): string {
@@ -29,29 +38,15 @@ export class StarbattleBoardComponent {
 	}
 
 	handleCellMouseDown(cell: Cell) {
-		if (!this.timerStarted) {
-			this.startTimer();
-			this.timerStarted = true;
-		}
-
-		if (cell.state == null || cell.state === 'empty') {
-			cell.state = 'marked';
-			this.starbattle.setMarkingEmpty(true);
-		} else if (cell.state === 'marked') {
-			cell.state = 'star';
-		} else if (cell.state === 'star') {
-			cell.state = 'empty';
-		}
+		this.starbattle.handleCellDown(cell);
 	}
 
 	handleCellMouseOver(cell: Cell) {
-		if ((cell.state == null || cell.state === 'empty') && this.starbattle.IsMarkingEmpty()) {
-			cell.state = 'marked';
-		}
+		this.starbattle.handleCellOver(cell);
 	}
 
 	private startTimer() {
-		setInterval(() => {
+		this.timerInterval = setInterval(() => {
 			this.seconds++;
 		}, 1000);
 	}

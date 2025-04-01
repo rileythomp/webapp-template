@@ -18,7 +18,11 @@ export type Cell = {
 
 export type Game = {
     board: Cell[][];
+    hasStarted: boolean;
+    isFinished: boolean;
     isMarkingEmpty: boolean;
+    clientStartTime: number;
+    clientEndTime: number;
 }
 
 

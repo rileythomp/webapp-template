@@ -4,7 +4,7 @@
 
 export const environment = {
 	production: false,
-	apiServerUrl: 'localhost:8080',
+	apiServerUrl: 'localhost:8000',
 	websocketProtocol: 'ws',
 	httpProtocol: 'http',
 	clientUrl: 'localhost:4200',

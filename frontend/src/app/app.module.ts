@@ -19,6 +19,7 @@ import { GlobalNavbarComponent } from './global-navbar/global-navbar.component';
 import { DebugBordersComponent } from './debug-borders/debug-borders.component';
 import { StarbattleBoardComponent } from './starbattle-board/starbattle-board.component';
 import { StartPageComponent } from './start-page/start-page.component';
+import { StarbattlePostGameComponent } from './starbattle-post-game/starbattle-post-game.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { StartPageComponent } from './start-page/start-page.component';
     PasswordResetComponent,
     NewPasswordComponent,
     StarbattleBoardComponent,
+    StarbattlePostGameComponent,
     StartPageComponent
   ],
   imports: [

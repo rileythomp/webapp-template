@@ -1,5 +1,5 @@
 <table>
-    <tr *ngFor="let row of board">
+    <tr *ngFor="let row of game.board">
         <td *ngFor="let cell of row" [ngStyle]="{
                 'background-color': cell.color,
                 'border-top': cell.row === 0 ? '5px solid black' : '2px solid black',
@@ -8,7 +8,7 @@
                 'border-right': cell.column === 7 || cell.borderRight ? '5px solid black' : '2px solid black',
             }" (mousedown)='handleCellMouseDown(cell)' (mouseover)='handleCellMouseOver(cell)'>
             <span class="dot" *ngIf="cell.state === 'marked'">●</span>
-            <span class="star" *ngIf="cell.state === 'star'">
+            <span class="star" *ngIf="cell.state === 'star'" [ngClass]="{'animate': game.isFinished}">
                 <svg contentScriptType="text/ecmascript" contentStyleType="text/css"
                     enable-background="new 0 0 2048 2048" height="45px" id="Layer_1" preserveAspectRatio="xMidYMid meet"
                     version="1.1" viewBox="0.0 0 1664.0 2048" width="45px" xml:space="preserve"
